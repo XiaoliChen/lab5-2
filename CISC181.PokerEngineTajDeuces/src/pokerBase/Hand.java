@@ -1,17 +1,25 @@
 package pokerBase;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.UUID;
+import java.util.*;
 
+import javax.persistence.*;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 
 import pokerEnums.eCardNo;
 import pokerEnums.eHandStrength;
 import pokerEnums.eRank;
 
+@Entity
+@Table(name = "HAND")
+
 public class Hand {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_EMP")
+	@SequenceGenerator(name = "SEQ_EMP", sequenceName = "SEQ_EMP", allocationSize = 1)
+	@Column(name = "id")
+	private UUID handID;
+	
 	private UUID playerID;
 	@XmlElement
 	private ArrayList<Card> CardsInHand;

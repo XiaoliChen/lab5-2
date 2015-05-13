@@ -99,6 +99,9 @@ public class PlayHand {
 		//	Kicker;
 		for (Player p : gme.GetGamePlayers()) {
 			Hand h = p.GetHand();
+			session.save(h);
+			
+			
 		}
 		
 		Player WinningPlayer = (Player) PlayerMap.get(AllHands.get(0).getPlayerID());
@@ -125,5 +128,7 @@ public class PlayHand {
 		 * System.out.println("*******   Deck XML   *******");
 		 * System.out.println(swDeck.toString());
 		 */
+
+		
 	}
 }
